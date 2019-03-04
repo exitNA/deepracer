@@ -1,6 +1,7 @@
 ## roslaunch deepracer_simulation racecar.launch
 
 * GazeboRosControlPlugin missing `<legacyModeNS>` while using DefaultRobotHWSim, defaults to true.
+
   * 修改`urdf/racecar.gazebo`文件，在`<plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">`里插入`<legacyModeNS>true</legacyModeNS>`
 
 * futures requires Python '>=2.6, <3' but the running Python is 3.5.2
@@ -20,5 +21,15 @@
     <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
     ```
 
-    
+* 存储摄像头图像数据
+
+  在`urdf/racecar.gazebo`文件的`<camera name="zed_camera_left_camera">`中添加
+
+  ```xml
+          <save enabled="true">
+            <path>/home/mark/camera_video</path>
+          </save>
+  ```
+
+  
 
